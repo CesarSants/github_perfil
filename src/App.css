@@ -1,4 +1,4 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -39,4 +39,55 @@
 
 .read-the-docs {
   color: #888;
+} */
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  transition: all 0.3s ease;
 }
+
+/* Estilos para o estado inicial (usuário não válido) */
+.invalid-user .form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-large {
+  width: 400px;
+  height: 60px;
+  font-size: 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+/* Estilos para o estado após o usuário ser válido */
+.valid-user {
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.valid-user .form-container {
+  margin-top: 20px;
+}
+
+.input-small {
+  width: 200px;
+  height: 40px;
+  font-size: 16px;
+}
+
+/* Botão */
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+
+
