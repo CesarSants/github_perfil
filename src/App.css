@@ -41,6 +41,38 @@
   color: #888;
 } */
 
+div.telaInicial.invalid-user{
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 200px;
+  display: block;
+  position: relative;
+}
+
+div.telaInicial.invalid-user a img{
+  width: 180px;
+  margin-bottom: 250px;
+}
+
+div.telaInicial.invalid-user h3{
+  position: absolute;
+  width: 180px;
+  top: 0;
+  margin-top: 100px;
+  text-align: center;
+  z-index: 10;
+}
+
+div.telaInicial.valid-user{
+display: none;
+}
+
+.app-container.invalid-user {
+  height: 100vh;
+  position: relative;
+
+}
+
 .app-container {
   display: flex;
   flex-direction: column;
@@ -57,8 +89,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .input-large {
@@ -69,7 +102,7 @@
   transition: all 0.3s ease;
 }
 
-/* Estilos para o estado após o usuário ser válido */
+
 .valid-user {
   align-items: flex-start;
   justify-content: flex-start;
@@ -77,6 +110,22 @@
 
 div.app-container.invalid-user {
   align-items: center;
+}
+
+div.app-container.invalid-user > a img{
+  display: none;
+} 
+
+div.app-container.valid-user img{
+  height: 50px;
+  padding-right: 20px;
+  margin-top: 10px;
+} 
+
+div.app-container.valid-user {
+  justify-content: space-between;
+  display: flex;
+  flex-direction:row-reverse;
 }
 
 .valid-user .form-container {
@@ -94,12 +143,34 @@ div.app-container.invalid-user {
   transition: all 0.3s ease;
 }
 
-/* Botão */
 button {
 
   padding: 10px 20px;
   font-size: 16px;
 }
 
+
+@media (min-width:  100px) and (max-width: 450px) {
+  button {
+    padding: 8px 16px;
+    font-size: 13px;
+    width: 100%;
+  }
+
+  .input-large {
+    width: auto;
+    height: 60px;
+    font-size: 24px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+}
+
+@media (min-width:  368px) and (max-width: 450px){
+  button{
+    width: 200px;
+  }
+}
 
 

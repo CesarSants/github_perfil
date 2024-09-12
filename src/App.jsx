@@ -2,6 +2,7 @@
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
+import myImage from './images/githubpn.png';
 
 import { useState } from "react"
 
@@ -43,36 +44,44 @@ const App = () => {
 
   return (
     <>
+      <div className={`app-container ${usuarioValido ? 'valid-user' : 'invalid-user'}`}>
+        <div className={`telaInicial ${usuarioValido ? 'valid-user' : 'invalid-user'}`}>
+          <a target='_blank' href="https://github.com/">
+            <img src={myImage} alt="" />
+          </a>
+          <h3>Insira um nome de usuário do Github</h3>
+        </div>
+        <a target='_blank' href="https://github.com/">
+          <img src={myImage} alt="" />
+        </a>
+        <form onSubmit={handleSubmit} className="form-container">
+          <input
+            type="text"
+            value={inputNome}
+            onChange={(e) => setInputNome(e.target.value)}
+            className={`input-field ${usuarioValido ? 'input-small' : 'input-large'}`} // Condicional para classes diferentes
+          />
+          <button type="submit">Buscar Usuário</button>
+        </form>
 
-    <div className={`app-container ${usuarioValido ? 'valid-user' : 'invalid-user'}`}>
-      <form onSubmit={handleSubmit} className="form-container">
-        <input
-          type="text"
-          value={inputNome}
-          onChange={(e) => setInputNome(e.target.value)}
-          className={`input-field ${usuarioValido ? 'input-small' : 'input-large'}`} // Condicional para classes diferentes
-        />
-        <button type="submit">Buscar Usuário</button>
-      </form>
-
-      {/* Renderiza Perfil e ReposList somente se o usuário for válido */}
-      {/* {usuarioValido && nomeUsuario.length > 4 && (
+        {/* Renderiza Perfil e ReposList somente se o usuário for válido */}
+        {/* {usuarioValido && nomeUsuario.length > 4 && (
         <>
           <Perfil nomeUsuario={nomeUsuario} />
           <ReposList nomeUsuario={nomeUsuario} />
         </>
       )} */}
-      {/* {formularioEstaVisivel && (
+        {/* {formularioEstaVisivel && (
         <Formulario/>)}
 
       <button onClick={() => setFormularioEstaVisivel(!formularioEstaVisivel)} type="button">toggle form</button> */}
-    </div>
-    {usuarioValido && nomeUsuario.length > 4 && (
-      <>
-        <Perfil nomeUsuario={nomeUsuario} />
-        <ReposList nomeUsuario={nomeUsuario} />
-      </>
-    )}
+      </div>
+      {usuarioValido && nomeUsuario.length > 4 && (
+        <>
+          <Perfil nomeUsuario={nomeUsuario} />
+          <ReposList nomeUsuario={nomeUsuario} />
+        </>
+      )}
     </>
   )
 }

@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 180px 0 40px;
+    padding: 40px 0 40px;
     margin-bottom: 80px;
 }
 
@@ -17,4 +17,32 @@
 .name{
     font-size: 20px;
     color: var(--corSecundaria);
+}
+
+header ul {
+    display: flex;
+    margin-top: 30px;
+    margin-left: -23px;
+}
+
+header ul li {
+    margin: 20px;
+    list-style: none;
+    text-align: center;
+    font-size: 15px;
+}
+
+@media (min-width:  100px) and (max-width: 450px) {
+    header ul li {
+        margin: 18px 10px;
+        list-style: none;
+        text-align: center;
+        font-size: 15px;
+    }
+
+    header ul {
+
+        margin-top: 20px;
+        margin-left: -3px;
+    }
 }
