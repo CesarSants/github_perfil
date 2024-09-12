@@ -1,7 +1,7 @@
 // import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
-//import './App.css'
+import './App.css'
 
 import { useState } from "react"
 
@@ -12,7 +12,7 @@ import ReposList from "./components/ReposList";
 const App = () => {
   const [nomeUsuario, setNomeUsuario] = useState('');
   const [inputNome, setInputNome] = useState(''); // Estado para o valor do input
-  const [usuarioValido, setUsuarioValido] = useState(true); // Para controlar se o nome de usuário é válido
+  const [usuarioValido, setUsuarioValido] = useState(false); // Para controlar se o nome de usuário é válido
 
   const handleSubmit = (e) => {
     e.preventDefault(); // Evita o comportamento padrão de recarregar a página
@@ -43,26 +43,36 @@ const App = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+
+    <div className={`app-container ${usuarioValido ? 'valid-user' : 'invalid-user'}`}>
+      <form onSubmit={handleSubmit} className="form-container">
         <input
           type="text"
           value={inputNome}
-          onChange={(e) => setInputNome(e.target.value)} // Atualiza o estado com o valor do input
+          onChange={(e) => setInputNome(e.target.value)}
+          className={`input-field ${usuarioValido ? 'input-small' : 'input-large'}`} // Condicional para classes diferentes
         />
         <button type="submit">Buscar Usuário</button>
       </form>
 
-      {/* Renderiza o Perfil e ReposList apenas se o nome de usuário for válido e existir no GitHub */}
-      {usuarioValido && nomeUsuario.length > 4 && (
+      {/* Renderiza Perfil e ReposList somente se o usuário for válido */}
+      {/* {usuarioValido && nomeUsuario.length > 4 && (
         <>
           <Perfil nomeUsuario={nomeUsuario} />
           <ReposList nomeUsuario={nomeUsuario} />
         </>
-      )}
+      )} */}
       {/* {formularioEstaVisivel && (
         <Formulario/>)}
 
       <button onClick={() => setFormularioEstaVisivel(!formularioEstaVisivel)} type="button">toggle form</button> */}
+    </div>
+    {usuarioValido && nomeUsuario.length > 4 && (
+      <>
+        <Perfil nomeUsuario={nomeUsuario} />
+        <ReposList nomeUsuario={nomeUsuario} />
+      </>
+    )}
     </>
   )
 }
